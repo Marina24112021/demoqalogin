@@ -11,7 +11,7 @@ import static io.restassured.http.ContentType.JSON;
 
 public class CodeDemoQASpec {
     public static RequestSpecification requestSpec = with()
-            //.filter(withCustomTemplates())
+            .filter(withCustomTemplates())
             .contentType(JSON)
             .log().all();
     public static ResponseSpecification successfulResponse201Spec = new ResponseSpecBuilder()

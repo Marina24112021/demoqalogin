@@ -59,6 +59,6 @@ tasks.withType(Test) {
 
 task apiTest(type: Test) {
     useJUnitPlatform {
-        includeTags("restAPI")
+        includeTags("RESTAPI")
     }
 }

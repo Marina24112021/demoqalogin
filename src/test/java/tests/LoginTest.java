@@ -12,7 +12,7 @@ import pages.ProfilePage;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Tag("restAPI")
+@Tag("RESTAPI")
 public class LoginTest extends TestBase{
     @Test
     @WithLogin
