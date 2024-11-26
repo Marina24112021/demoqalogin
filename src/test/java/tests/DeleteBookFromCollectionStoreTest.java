@@ -11,7 +11,7 @@ import pages.ProfilePage;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Tag("restapi")
-public class BookCollectionStoreTest extends TestBase {
+public class DeleteBookFromCollectionStoreTest extends TestBase {
     @Test
     @WithLogin
     @DisplayName("Using API and UI to delete books and check the empty collection")
