@@ -4,7 +4,6 @@ import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import utils.WebDriverUtils;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -16,7 +15,7 @@ import static org.openqa.selenium.logging.LogType.BROWSER;
 
 public class Attach {
     @Attachment(value = "{attachName}", type = "image/png")
-    public static byte[] screenshotAs(String attachName) {
+    public static byte[] screenshotAs() {
         return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
     }
 
@@ -26,13 +25,12 @@ public class Attach {
     }
 
     @Attachment(value = "{attachName}", type = "text/plain")
-    public static String attachAsText(String attachName, String message) {
+    public static String attachAsText(String message) {
         return message;
     }
 
     public static void browserConsoleLogs() {
         attachAsText(
-                "Browser console logs",
                 String.join("\n", Selenide.getWebDriverLogs(BROWSER))
         );
     }
@@ -45,7 +43,7 @@ public class Attach {
     }
 
     public static URL getVideoUrl() {
-        String videoUrl = "https://" + WebDriverUtils.REMOTEWD.getDef() + "/video/" + sessionId() + ".mp4";
+        String videoUrl = "https://" + System.getProperty("rmwdaddres") + "/video/" + sessionId() + ".mp4";
         try {
             return new URL(videoUrl);
         } catch (MalformedURLException e) {
