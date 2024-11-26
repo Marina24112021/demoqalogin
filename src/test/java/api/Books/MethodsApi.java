@@ -8,34 +8,33 @@ import io.qameta.allure.Step;
 
 import java.util.List;
 
-import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static specs.CodeDemoQASpec.*;
 
 public class MethodsApi {
     @Step("Delete all books in collection")
     public static void deleteAllBooksApi() {
-        step("Request Delete ", () -> given()
+        given()
                 .header("Authorization", "Bearer " +
                         Authorization.userAuthorizationApi().getToken())
                 .queryParam("UserId", Authorization.userAuthorizationApi().getUserId())
                 .when()
                 .delete("/BookStore/v1/Books")
                 .then()
-                .spec(successfulResponse204Spec));
+                .spec(successfulResponse204Spec);
     }
 
     @Step("Add book about git to collection")
     public static void addBookToCardApi(String isbn) {
         IsbnModel isbnModel = new IsbnModel(isbn);
         AddBooksToCardModel request = new AddBooksToCardModel(Authorization.userAuthorizationApi().getUserId(), List.of(isbnModel));
-        step("Request", () -> given(requestSpec)
+        given(requestSpec)
                 .header("Authorization", "Bearer " + Authorization.userAuthorizationApi().getToken())
                 .body(request)
                 .when()
                 .post("/BookStore/v1/Books")
                 .then()
-                .spec(successfulResponse201Spec));
+                .spec(successfulResponse201Spec);
     }
 
     @Step("Check that collection is empty from API ")
