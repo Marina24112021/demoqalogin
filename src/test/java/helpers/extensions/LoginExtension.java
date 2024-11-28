@@ -1,6 +1,6 @@
 package helpers.extensions;
 
-import api.Account.Authorization;
+import api.account.Authorization;
 import api.models.LoginResponseModel;
 import org.junit.jupiter.api.extension.BeforeEachCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;

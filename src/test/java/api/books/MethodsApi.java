@@ -1,6 +1,6 @@
-package api.Books;
+package api.books;
 
-import api.Account.Authorization;
+import api.account.Authorization;
 import api.models.AddBooksToCardModel;
 import api.models.GetCollectionOfAllBooksModel;
 import api.models.IsbnModel;

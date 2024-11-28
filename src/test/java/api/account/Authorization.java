@@ -1,4 +1,4 @@
-package api.Account;
+package api.account;
 
 import api.models.LoginRequestModel;
 import api.models.LoginResponseModel;

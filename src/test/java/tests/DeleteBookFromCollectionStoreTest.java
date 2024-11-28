@@ -1,6 +1,6 @@
 package tests;
 
-import api.Books.MethodsApi;
+import api.books.MethodsApi;
 import api.models.GetCollectionOfAllBooksModel;
 import helpers.extensions.WithLogin;
 import org.junit.jupiter.api.DisplayName;
